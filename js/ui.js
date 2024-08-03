@@ -6,7 +6,7 @@ export function displayGames(games){
     games.forEach(game => {
         cartona+=`
                 <div class="col">
-                    <div class="item h-100 d-flex flex-column justify-content-between border border-main-color rounded-2 overflow-hidden">
+                    <div class="item h-100 d-flex flex-column justify-content-between border border-main-color rounded-2 overflow-hidden" id="${game.id}">
                         <div class="item-body small p-3">
                             <div class="img mb-2">
                                 <img class="w-100 rounded-2" src="${game.thumbnail}">
@@ -30,17 +30,4 @@ export function displayGames(games){
     document.getElementById("games-row").innerHTML=cartona
 }
 
-async function getGameDetails(id){
-    const url = `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}`;
-    const options = {
-        method: 'GET',
-        headers: {
-            'x-rapidapi-key': 'c67815b3d8mshed2de66a8928b04p19cbb4jsn83c3518bdaaf',
-            'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com'
-        }
-    };
-    let response = await fetch(url, options);
-    response=response.json()
-    console.log(response);
-    
-}
+

@@ -1,8 +1,11 @@
+import { GameDetails } from "./details.js";
 import { displayGames } from "./ui.js";
 
 export class Games{
     constructor(category){
-        this.getGames(category)      
+        this.category=category
+        this.getGames(category)
+
     }
     async getGames(category){
         const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`;
@@ -16,7 +19,17 @@ export class Games{
         let response = await fetch(url, options);
         response=await response.json()
         displayGames(response);
-        
+
+        let items=Array.from(document.getElementsByClassName("item"))
+        items.forEach((item)=>{
+            item.addEventListener('click',()=>{
+                $("#games").fadeOut(500,()=>{
+                    $("#game-details").fadeIn(500);
+                });
+                let gameDetails=new GameDetails(item.id)
+            })
+        })
         
     }
+
 }
