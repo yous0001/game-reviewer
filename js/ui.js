@@ -6,7 +6,7 @@ export function displayGames(games){
     games.forEach(game => {
         cartona+=`
                 <div class="col">
-                    <div class="item h-100 border border-main-color rounded-2 overflow-hidden">
+                    <div class="item h-100 d-flex flex-column justify-content-between border border-main-color rounded-2 overflow-hidden">
                         <div class="item-body small p-3">
                             <div class="img mb-2">
                                 <img class="w-100 rounded-2" src="${game.thumbnail}">

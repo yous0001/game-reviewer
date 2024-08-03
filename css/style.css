@@ -39,8 +39,10 @@ h1,h2,h3,h4,h5,h6 {
 }
 .item{
     cursor: pointer;
+    filter: grayscale(0.7);
     transition: all 0.3s;
 }
 .item:hover{
     transform: scale(1.1,1.1);
+    filter: none;
 }
