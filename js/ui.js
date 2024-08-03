@@ -30,4 +30,20 @@ export function displayGames(games){
     document.getElementById("games-row").innerHTML=cartona
 }
 
-
+export function displayGameDetails(game){
+    let cartona=`
+        <div class="col-md-4">
+                    <img src="${game.thumbnail}" class="w-100" alt="">
+                </div>
+        <div class="col-md-8">
+            <h3>Title: ${game.title}</h3>
+            <p>Category: <span class="badge text-bg-info"> ${game.genre}</span> </p>
+            <p>Platform: <span class="badge text-bg-info"> ${game.platform}</span> </p>
+            <p>Status: <span class="badge text-bg-info"> ${game.status}</span> </p>
+            <p class="small">${game.description}</p>
+            <a class="btn btn-outline-warning" target="_blank"
+                href="${game.game_url}">Show Game</a>
+        </div>
+    `
+    document.getElementById("game-details-row").innerHTML=cartona
+}

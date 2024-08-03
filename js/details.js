@@ -1,7 +1,14 @@
+import { displayGameDetails } from "./ui.js";
+
 export class GameDetails{
     constructor(gameID){
         this.gameID=gameID
         this.getGameDetails(gameID)
+        document.getElementById("close").addEventListener('click',()=>{
+            $("#game-details").fadeOut(500,()=>{
+                $("#games").fadeIn(500);
+            });
+        })
     }
     async getGameDetails(id){
         const url = `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}`;
@@ -14,7 +21,7 @@ export class GameDetails{
         };
         let response = await fetch(url, options);
         response=await response.json()
-        console.log(response);
+        displayGameDetails(response);
         
     }
 }

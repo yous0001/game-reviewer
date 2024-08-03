@@ -5,7 +5,9 @@ export class Games{
     constructor(category){
         this.category=category
         this.getGames(category)
-
+        
+       
+        
     }
     async getGames(category){
         const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${category}`;
